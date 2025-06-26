@@ -1,0 +1,23 @@
+{%extends "base.html"%} {%block head%}
+<title>Results</title>
+{%endblock%} {%block body%}
+<h1 style="text-align: center">Results</h1>
+<table>
+  <tr>
+    <th>Report Feature</th>
+    <th>Value</th>
+  </tr>
+</table>
+{%for feature in features%}
+<table>
+  <tr>
+    <th>{{feature.key}}</th>
+    <th>{{feature.value}}</th>
+  </tr>
+</table>
+{%end for%}
+<h3 style="text-align: center">Thus Your Risk Level Is: {{risk}}</h3>
+<form action="/" method="GET">
+  <input type="submit" value="Return To Home" />
+</form>
+{%endblock%}

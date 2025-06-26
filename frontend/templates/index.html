@@ -1,0 +1,15 @@
+{%extends 'base.html'%} {%block head%}
+<title>Home</title>
+{%endblock%} {% block body %}
+<h1 style="text-align: center">🩺 Upload Medical Report</h1>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+  <label>Select Report (JPG, PNG, PDF):</label><br />
+  <input
+    type="file"
+    name="report"
+    accept=".jpg,.jpeg,.png,.pdf"
+    required
+  /><br /><br />
+  <button type="submit">Analyze Report</button>
+</form>
+{% endblock %}
