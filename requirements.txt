@@ -4,3 +4,4 @@ pillow
 joblib
 web3.storage
 pdf2image
+requests

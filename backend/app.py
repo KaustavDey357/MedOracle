@@ -3,6 +3,7 @@ from ml_model.predict import predict_risk
 from ocr.extract import extract_health_metrics
 import os
 from werkzeug.utils import secure_filename
+from ipfs_uploader import upload_file_to_ipfs
 
 
 app = Flask(__name__, template_folder='../frontend/templates')
@@ -23,8 +24,9 @@ def upload_and_predict():
     features = extract_health_metrics(filepath)
     features.update({...})
     risk = predict_risk(features)
+    ipfs_cid = upload_file_to_ipfs(filepath)
 
-    return render_template("result.html", risk=risk, features=features)
+    return render_template("result.html", risk=risk, features=features, cid=ipfs_cid)
 
 
 if __name__ == "__main__":
