@@ -16,8 +16,20 @@
   </tr>
 </table>
 {%end for%}
-<h3 style="text-align: center">Thus Your Risk Level Is: {{risk}}</h3>
-<h5 style="text-align: center">The CID of saved image in ipfs is :- {{cid}}</h5>
+<br />
+<h2 style="text-align: center">Analysis Result</h2>
+<p><strong>Risk:</strong> {{ risk }}</p>
+<p>
+  <strong>IPFS Report:</strong>
+  <a href="https://{{ cid }}.ipfs.w3s.link" target="_blank">{{ cid }}</a>
+</p>
+<p>
+  <strong>Transaction:</strong>
+  <a href="https://sepolia.etherscan.io/tx/{{ tx }}" target="_blank"
+    >{{ tx }}</a
+  >
+</p>
+
 <form action="/" method="GET">
   <input type="submit" value="Return To Home" />
 </form>

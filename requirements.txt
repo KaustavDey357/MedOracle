@@ -5,3 +5,4 @@ joblib
 web3.storage
 pdf2image
 requests
+web3

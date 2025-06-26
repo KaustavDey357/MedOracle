@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 from ml_model.predict import predict_risk
 from ocr.extract import extract_health_metrics
+from contract_connector import store_on_chain
 import os
 from werkzeug.utils import secure_filename
 from ipfs_uploader import upload_file_to_ipfs
@@ -26,7 +27,9 @@ def upload_and_predict():
     risk = predict_risk(features)
     ipfs_cid = upload_file_to_ipfs(filepath)
 
-    return render_template("result.html", risk=risk, features=features, cid=ipfs_cid)
+    tx_hash = store_on_chain(risk, ipfs_cid)
+
+    return render_template("result.html", risk=risk, features=features, cid=ipfs_cid, tx=tx_hash)
 
 
 if __name__ == "__main__":
