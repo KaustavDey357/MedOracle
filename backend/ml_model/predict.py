@@ -1,8 +1,11 @@
 import joblib
 import numpy as np
+import os
 
 # Load the model once
-model = joblib.load("backend/ml_model/model.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "model.pkl")
+model = joblib.load(model_path)
 
 # Required feature order depends on the trained model
 
