@@ -139,6 +139,6 @@ Kaustav – DevOps, Cloud & Blockchain Developer
 Pull requests welcome. Open issues for ideas, bugs, or feature suggestions.
 
 ## 📬 Contact
-📨 ![LinkedIn](https://www.linkedin.com/in/kaustav-dey-107593244)
-📨 ![Twitter](https://x.com/KaustavDey357)
-📨 ![Portfolio](https://kaustavdey357.github.io/)
+📨 [LinkedIn](https://www.linkedin.com/in/kaustav-dey-107593244)
+📨 [Twitter](https://x.com/KaustavDey357)
+📨 [Portfolio](https://kaustavdey357.github.io/)
