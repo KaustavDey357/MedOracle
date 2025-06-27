@@ -1,36 +1,45 @@
 {%extends "base.html"%} {%block head%}
 <title>Results</title>
 {%endblock%} {%block body%}
-<h1 style="text-align: center">Results</h1>
-<table>
-  <tr>
-    <th>Report Feature</th>
-    <th>Value</th>
-  </tr>
-</table>
-{%for feature in features%}
-<table>
-  <tr>
-    <th>{{feature.key}}</th>
-    <th>{{feature.value}}</th>
-  </tr>
-</table>
-{%end for%}
-<br />
-<h2 style="text-align: center">Analysis Result</h2>
-<p><strong>Risk:</strong> {{ risk }}</p>
-<p>
-  <strong>IPFS Report:</strong>
-  <a href="https://{{ cid }}.ipfs.w3s.link" target="_blank">{{ cid }}</a>
-</p>
-<p>
-  <strong>Transaction:</strong>
-  <a href="https://sepolia.etherscan.io/tx/{{ tx }}" target="_blank"
-    >{{ tx }}</a
-  >
-</p>
+<div
+  class="bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl p-8 rounded-2xl w-full max-w-xl text-center"
+>
+  <h1 class="text-3xl font-bold text-green-400 mb-4">✅ Analysis Complete</h1>
 
-<form action="/" method="GET">
-  <input type="submit" value="Return To Home" />
-</form>
+  <p class="mb-2 text-lg text-gray-300">
+    Risk Level:
+    <span
+      class="text-2xl font-semibold {% if risk == 'High' %}text-red-500{% else %}text-green-500{% endif %}"
+    >
+      {{ risk }}
+    </span>
+  </p>
+
+  <div class="mt-6 text-left space-y-2">
+    <h2 class="text-xl font-semibold text-cyan-300">Extracted Features:</h2>
+    <ul class="list-disc list-inside text-gray-300">
+      {% for key, value in features.items() %}
+      <li><strong>{{ key }}:</strong> {{ value }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="mt-6 text-left space-y-2">
+    <h2 class="text-xl font-semibold text-yellow-300">Blockchain Record:</h2>
+    <p class="break-words text-sm text-gray-300">
+      🧾 IPFS CID: <code class="text-yellow-400">{{ cid }}</code>
+    </p>
+    <p class="text-sm text-gray-400">
+      🔐 Stored via smart contract for secure access.
+    </p>
+  </div>
+
+  <div class="mt-6">
+    <a
+      href="/"
+      class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-2 rounded-lg transition"
+      >🔁 Upload Another</a
+    >
+  </div>
+</div>
 {%endblock%}

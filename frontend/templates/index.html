@@ -1,15 +1,33 @@
 {%extends 'base.html'%} {%block head%}
 <title>Home</title>
 {%endblock%} {% block body %}
-<h1 style="text-align: center">🩺 Upload Medical Report</h1>
-<form method="POST" action="/upload" enctype="multipart/form-data">
-  <label>Select Report (JPG, PNG, PDF):</label><br />
-  <input
-    type="file"
-    name="report"
-    accept=".jpg,.jpeg,.png,.pdf"
-    required
-  /><br /><br />
-  <button type="submit">Analyze Report</button>
-</form>
+<div
+  class="bg-white/10 backdrop-blur-md rounded-3xl p-8 shadow-2xl max-w-lg w-full text-center border border-white/20"
+>
+  <h1 class="text-3xl font-bold text-cyan-400 mb-4">🧬 MedOracle</h1>
+  <p class="mb-6 text-gray-300">
+    Upload your test result and let our AI + Web3 engine analyze it securely.
+  </p>
+
+  <form
+    action="/upload"
+    method="POST"
+    enctype="multipart/form-data"
+    class="flex flex-col space-y-4"
+  >
+    <input
+      type="file"
+      name="file"
+      accept=".png,.jpg,.jpeg,.pdf"
+      required
+      class="file:bg-cyan-600 file:text-white file:px-4 file:py-2 file:rounded-lg bg-gray-800 text-gray-300 p-2 rounded-lg"
+    />
+    <button
+      type="submit"
+      class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 rounded-xl transition duration-300"
+    >
+      🔍 Analyze Report
+    </button>
+  </form>
+</div>
 {% endblock %}
